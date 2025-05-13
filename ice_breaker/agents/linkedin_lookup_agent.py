@@ -1,6 +1,5 @@
 import os
 from dotenv import load_dotenv
-from tools.tools import get_profile_url_tavily
 
 load_dotenv()
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -11,6 +10,9 @@ from langchain.agents import (
     AgentExecutor,
 )
 from langchain import hub
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from tools.tools import get_profile_url_tavily
 
 def lookup(name: str) -> str:
     llm = ChatGoogleGenerativeAI(
